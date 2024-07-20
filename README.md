@@ -39,14 +39,17 @@ More information on server configuration: https://github.com/tableau/TabPy/blob/
 ## Notes / Issues
 Special notes on SSL issues
 
-Tableau cloud appears to absolutely require SSL certificates registered to a "3rd party certificate authority"
+Tableau cloud appears to absolutely require SSL certificates registered to a "3rd party certificate authority" and a url that is on the actual internet.
+localhost will not work with Tableau Cloud.
 
 http seems to work with tableau server (running on own network):
  https://help.tableau.com/current/server/en-us/ssl_config.htm
 
  https://help.tableau.com/current/server/en-us/config_r_tabpy.htm#server-ssl
 
-Editing the `_conf.conf` file to use http will run properly and might work on tableau server, assuming this container (running tabpy) are running on the same machine hosting the tableau server
+Editing the `_conf.conf` file to use http will run properly and might work on tableau server, assuming this container (running tabpy) are running on the same machine hosting the tableau server:
+
+```TABPY_TRANSFER_PROTOCOL = http```
 
 ## Verifying certificates
 
