@@ -13,6 +13,9 @@ This will run the container and mount the current directory as /workdir. This fi
 
 # All commands, unless otherwise stated must be executed from inside the container
 
+3 - create a credentials directory:
+`mkdir credentials`
+
 3 - Generate SSL certifcates by executing:
 
 3a - `openssl genpkey -algorithm RSA -out /workdir/credentials/sample_key.key -pkeyopt rsa_keygen_bits:2048`
@@ -31,6 +34,19 @@ Follow all prompts on step 3b
 
 This bash script runs tabpy with the settings on the `/workdir/_conf.conf` file, which specify certificates and credentials.
 
+More information on server configuration: https://github.com/tableau/TabPy/blob/master/docs/server-config.md
+
+## Notes / Issues
+Special notes on SSL issues
+
+Tableau cloud appears to absolutely require SSL certificates registered to a "3rd party certificate authority"
+
+http seems to work with tableau server (running on own network):
+ https://help.tableau.com/current/server/en-us/ssl_config.htm
+
+ https://help.tableau.com/current/server/en-us/config_r_tabpy.htm#server-ssl
+
+Editing the `_conf.conf` file to use http will run properly and might work on tableau server, assuming this container (running tabpy) are running on the same machine hosting the tableau server
 
 ## Verifying certificates
 
