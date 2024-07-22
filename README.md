@@ -30,7 +30,7 @@ Follow all prompts on step 3b
 `tabpy-user add -u testuser -p t3st-pw -f /workdir/credentials/sample_password.txt`
 
 5 - Run the tabpy server by executing:
-`run_tabpy.sh`
+`sh run_tabpy.sh`
 
 This bash script runs tabpy with the settings on the `/workdir/_conf.conf` file, which specify certificates and credentials.
 

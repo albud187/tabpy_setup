@@ -25,12 +25,6 @@ RUN pip install -r requirements.txt
 # Install TabPy
 RUN pip install tabpy
 
-# Copy the configuration and certificate files
-COPY config /config
-
-# Set the working directory
-WORKDIR /home/alfab/experiments/tabpy_admin
-
 # Expose the port TabPy will run on
 EXPOSE 9004
 
